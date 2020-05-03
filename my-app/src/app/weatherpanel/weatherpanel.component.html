@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title" class = "text-center my-4">Search for Weather</div>
+    <div class = "text-center my-4">
+      <form [formGroup] = 'weatherSearchForm' (ngSubmit) = "sendToAPI(weatherSearchForm.value)">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="weatherLocation"
+            aria-describedby="weatherLocation"
+            placeholder="Please input a Location"
+            formControlName = "location"/>
+        </div>
+          <button type="submit" class="btn btn-success btn-md">
+            Search for the weather
+          </button>
+      </form>
+      <p>
+        Current weather conditions: {{this.weatherData?.weather.description}}
+      </p>
+      <p>
+        Temperature in Degrees Farenheit: {{this.weatherData?.main.temp}}
+      </p>
+      <p>
+        Feels like in Degrees Farenheit: {{this.weatherData?.main.feels_like}}
+      </p>
+      <p>
+        Location Searched: {{this.weatherData?.name}}
+      </p>
+    </div>
+  </div>
+</div>
