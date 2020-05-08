@@ -1,0 +1,36 @@
+<div class="container">
+      <div class="text">
+        <div class="text-center my-4">
+          <h3 class="weather-widget__city-name">Weather in {{this.weatherData?.name}}, {{this.weatherData.sys.country}}</h3>
+          <h3 class="weather-widget__temperature">
+            {{this.weatherData.main?.temp - 273.15 | number:'1.0-0'}} °C
+          </h3>
+          <h4>{{this.weatherData.weather[0].description}}</h4>
+          <p>{{this.weatherData?.dt*1000 | date:'MMM d, y, h:mm:ss a'}}</p>
+          <table id="table1">
+            <tbody>
+              <tr class="weather-widget__item">
+                <td>Max Temp</td>
+                <td id="weather-widget-cloudiness">{{this.weatherData.main?.temp_max - 273.15 | number:'1.0-0' }} °C</td>
+              </tr>
+              <tr class="weather-widget__item">
+                <td>Min Temp</td>
+                <td>{{this.weatherData.main?.temp_min - 273.15 | number:'1.0-0' }} °C</td>
+              </tr>
+              <tr class="weather-widget__item">
+                <td>Humidity</td>
+                <td>{{this.weatherData.main?.humidity}} %</td>
+              </tr>
+              <tr class="weather-widget__item">
+                <td>Sunrise</td>
+                <td>{{this.weatherData.sys?.sunrise*1000 | date:'h:mm:ss a'}} </td>
+              </tr>
+              <tr class="weather-widget__item">
+                <td>Sunset</td>
+                <td>{{this.weatherData.sys?.sunset*1000 | date:'h:mm:ss a'}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>

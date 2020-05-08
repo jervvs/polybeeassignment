@@ -9,14 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from "./api.service";
 import { HeaderComponent } from './components/header/header.component';
 import { WeatherpanelComponent } from './weatherpanel/weatherpanel.component';
-
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { AnchorDirectiveDirective } from './anchor-directive.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     HeaderComponent,
-    WeatherpanelComponent
+    WeatherpanelComponent,
+    CurrentWeatherComponent,
+    AnchorDirectiveDirective
   ],
   imports: [
     BrowserModule,
