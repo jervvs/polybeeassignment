@@ -48,6 +48,6 @@ export class WeatherpanelComponent implements OnInit {
   getUrl(){
     let weathericon = this.weatherData.weather[0].icon;
     let backgroundURL = '../assets/img/' + weathericon + '.png';
-    return "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(" + backgroundURL+ ")";
+    return "linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url(" + backgroundURL+ ")";
   }
 }

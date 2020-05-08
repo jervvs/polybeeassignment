@@ -2,11 +2,7 @@
   <h1 class = "text-center my-4">Weather Monitoring System</h1>
   <div class = "row">
     <div *ngFor = 'let number of [1,2,3,4,5,6,7,8,9]' class = 'col-md-4'>
-      <div *ngIf = "startForm else emptypanel">
-        <app-weatherpanel></app-weatherpanel>
-      </div>
-      <ng-template #emptypanel>
-      </ng-template>
+      <app-weatherpanel></app-weatherpanel>
     </div>
   </div>
 </div>
