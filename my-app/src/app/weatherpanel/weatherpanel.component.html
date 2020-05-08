@@ -1,34 +1,30 @@
-<div id="accordion" >
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Weather Panel
-      </button>
-      </h5>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body" [ngStyle] = "{'background-color': 'rgba(0, 0, 0, 1)'}">
-        <div class="form" *ngIf = "editMode else displayResults">
-          <div class = "text-center my-4">
-            <form [formGroup] = 'weatherSearchForm'>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  type="text"
-                  id="weatherLocation"
-                  aria-describedby="weatherLocation"
-                  placeholder="Enter City"
-                  formControlName = "location"/>
-              </div>
-            </form>
-            <button class="btn btn-success btn-md" (click) = "sendToAPI(weatherSearchForm.value)">Search</button>
-          </div>
+<div *ngIf = "formStart else startingPanel">
+  <div class="form" *ngIf = "editMode else displayResults">
+    <div class = "text-center my-4">
+      <form [formGroup] = 'weatherSearchForm'>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="weatherLocation"
+            aria-describedby="weatherLocation"
+            placeholder="Enter City"
+            formControlName = "location"/>
         </div>
-      </div>
+      </form>
+      <button class="btn btn-success btn-md" (click) = "sendToAPI(weatherSearchForm.value)">Search</button>
     </div>
   </div>
 </div>
+
+<ng-template #startingPanel>
+  <div class="card">
+    <div class="card-body" class = "text-center my-4" >
+      <h3>Weather Panel</h3>
+      <button class="btn btn-success btn-md" (click) = "startForm()">Start</button>
+    </div>
+  </div>
+</ng-template>
 
 
 
@@ -39,7 +35,7 @@
                 'background-position': 'center',
                 'background-size': 'cover'}">
                 <app-current-weather [weatherData] = "weatherData"></app-current-weather>
-                <div class="text-center my-4">
+                <div class="text-center my-4" [ngStyle] = "{'padding-bottom': '20px'}">
                   <button class="btn btn-success btn-md" (click) = "edit()">Edit</button>
                 </div>
     </div>
@@ -50,6 +46,8 @@
   <div class="text-center my-4">
     <h3>No city found. </h3>
     <p>Please try again.</p>
-    <button class="btn btn-success btn-md" (click) = "edit()">Edit</button>
+    <div [ngStyle] = "{'padding-bottom': '20px'}">
+      <button class="btn btn-success btn-md" (click) = "edit()">Edit</button>
+    </div>
   </div>
 </ng-template>

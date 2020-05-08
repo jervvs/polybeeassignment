@@ -12,6 +12,7 @@ export class WeatherpanelComponent implements OnInit {
   public weatherSearchForm: FormGroup;
   public weatherData: any;
   editMode = true;
+  formStart = false;
 
   //add formBuilder to cosntructor to create an instance of a FormBuilder to use in the component
   constructor(
@@ -45,9 +46,13 @@ export class WeatherpanelComponent implements OnInit {
     this.editMode=true;
   }
 
+  startForm(){
+    this.formStart = true;
+  }
+
   getUrl(){
     let weathericon = this.weatherData.weather[0].icon;
     let backgroundURL = '../assets/img/' + weathericon + '.png';
-    return "linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url(" + backgroundURL+ ")";
+    return "linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url(" + backgroundURL+ ")";
   }
 }
